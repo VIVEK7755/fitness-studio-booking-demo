@@ -1,56 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import './index.css';
 
-// Types
-interface FitnessClass {
-  id: number;
-  name: string;
-  start_datetime_IST: string; // New field for IST
-  instructor: string;
-  available_slots: number;
-}
-
-interface BookingFormData {
-  client_name: string;
-  client_email: string;
-}
-
-interface Booking {
-  id: number;
-  class_name: string;
-  client_name: string;
-  client_email: string;
-  start_datetime_IST: string;
-  instructor: string;
-}
-
 const API_BASE = 'http://localhost:8000';
 
-const App: React.FC = () => {
-  const [classes, setClasses] = useState<FitnessClass[]>([]);
+const App = () => {
+  const [classes, setClasses] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [selectedClass, setSelectedClass] = useState<FitnessClass | null>(null);
-  const [bookingForm, setBookingForm] = useState<BookingFormData>({
+  const [selectedClass, setSelectedClass] = useState(null);
+  const [bookingForm, setBookingForm] = useState({
     client_name: '',
-    client_email: ''
+    client_email: '',
   });
-  const [bookingStatus, setBookingStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [bookingStatus, setBookingStatus] = useState('idle');
   const [errorMessage, setErrorMessage] = useState('');
 
-  // Bookings
-  const [bookings, setBookings] = useState<Booking[]>([]);
+  const [bookings, setBookings] = useState([]);
   const [showBookings, setShowBookings] = useState(false);
   const [bookingsLoading, setBookingsLoading] = useState(false);
   const [bookingsError, setBookingsError] = useState('');
   const [filterEmail, setFilterEmail] = useState('');
 
-
-  // API Tester
   const [showApiTester, setShowApiTester] = useState(false);
-  const [apiMethod, setApiMethod] = useState<'GET' | 'POST'>('GET');
+  const [apiMethod, setApiMethod] = useState('GET');
   const [apiEndpoint, setApiEndpoint] = useState('/classes');
   const [apiRequestBody, setApiRequestBody] = useState(
-    `{\n  "class_id": 1,\n  "client_name": "Test User",\n  "client_email": "test@example.com"\n}`
+    `{
+  "class_id": 1,
+  "client_name": "Test User",
+  "client_email": "test@example.com"
+}`
   );
   const [apiResponse, setApiResponse] = useState('');
   const [apiLoading, setApiLoading] = useState(false);
@@ -91,15 +69,14 @@ const App: React.FC = () => {
     }
   };
 
-
-  const handleBookClass = (classItem: FitnessClass) => {
+  const handleBookClass = (classItem) => {
     setSelectedClass(classItem);
     setBookingForm({ client_name: '', client_email: '' });
     setBookingStatus('idle');
     setErrorMessage('');
   };
 
-  const handleFormSubmit = async (e: React.FormEvent) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
     if (!selectedClass) return;
 
@@ -129,31 +106,22 @@ const App: React.FC = () => {
         setSelectedClass(null);
         setBookingStatus('idle');
       }, 2000);
-
     } catch (error) {
       setBookingStatus('error');
-      setErrorMessage(error instanceof Error ? error.message : 'Booking failed');
+      setErrorMessage(error.message || 'Booking failed');
     }
   };
 
-  const formatDateTime = (dateTimeString: string) => {
+  const formatDateTime = (dateTimeString) => {
     const date = new Date(dateTimeString);
     return date.toLocaleDateString('en-US', {
       weekday: 'short',
       month: 'short',
       day: 'numeric',
       hour: '2-digit',
-      minute: '2-digit'
+      minute: '2-digit',
     });
   };
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-brand-blue text-xl">Loading classes...</div>
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -381,7 +349,7 @@ const App: React.FC = () => {
             <div className="mb-4 flex gap-4 items-center">
               <select
                 value={apiMethod}
-                onChange={(e) => setApiMethod(e.target.value as 'GET' | 'POST')}
+                onChange={(e) => setApiMethod(e.target.value )}
                 className="border px-3 py-2 rounded"
               >
                 <option value="GET">GET</option>
@@ -448,7 +416,7 @@ const App: React.FC = () => {
           </div>
         </div>
       )}
-    </div>
+      </div>
   );
 };
 
