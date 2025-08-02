@@ -1,0 +1,407 @@
+{
+	"info": {
+		"_postman_id": "a97a6cf1-f6d3-4d95-8ed4-78d54d9637c6",
+		"name": "Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40640934"
+	},
+	"item": [
+		{
+			"name": "Book a Class",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n       \"class_id\": 4,\r\n       \"client_name\": \"Sri Hari\",\r\n       \"client_email\": \"sriharim96@gmail.com\"\r\n     }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/book",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"book"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Book a Class",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n       \"class_id\": 6,\r\n       \"client_name\": \"Ashish\",\r\n       \"client_email\": \"ashish123@gmail.com\"\r\n     }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/book",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"book"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "date",
+							"value": "Sat, 02 Aug 2025 14:01:26 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "116"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Successfully booked Boxing for Ashish\",\n    \"class_name\": \"Boxing\",\n    \"client_name\": \"Ashish\",\n    \"remaining_slots\": 4\n}"
+				}
+			]
+		},
+		{
+			"name": "Available Classes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n       \"class_id\": 4,\r\n       \"client_name\": \"Sri Hari\",\r\n       \"client_email\": \"sriharim96@gmail.com\"\r\n     }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/classes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"classes"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:8000/book",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n       \"class_id\": 4,\r\n       \"client_name\": \"Sri Hari\",\r\n       \"client_email\": \"sriharim96@gmail.com\"\r\n     }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/classes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"classes"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "date",
+							"value": "Sat, 02 Aug 2025 13:45:21 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "670"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"name\": \"Morning Yoga\",\n        \"start_datetime_IST\": \"2025-08-02T08:00:00\",\n        \"instructor\": \"Alice\",\n        \"available_slots\": 9,\n        \"id\": 1\n    },\n    {\n        \"name\": \"HIIT Training\",\n        \"start_datetime_IST\": \"2025-08-02T18:00:00\",\n        \"instructor\": \"Bob\",\n        \"available_slots\": 8,\n        \"id\": 2\n    },\n    {\n        \"name\": \"Pilates\",\n        \"start_datetime_IST\": \"2025-08-03T09:00:00\",\n        \"instructor\": \"Charlie\",\n        \"available_slots\": 12,\n        \"id\": 3\n    },\n    {\n        \"name\": \"CrossFit\",\n        \"start_datetime_IST\": \"2025-08-03T19:00:00\",\n        \"instructor\": \"David\",\n        \"available_slots\": 5,\n        \"id\": 4\n    },\n    {\n        \"name\": \"Zumba\",\n        \"start_datetime_IST\": \"2025-08-04T10:00:00\",\n        \"instructor\": \"Eva\",\n        \"available_slots\": 14,\n        \"id\": 5\n    },\n    {\n        \"name\": \"Boxing\",\n        \"start_datetime_IST\": \"2025-08-04T11:00:00\",\n        \"instructor\": \"Frank\",\n        \"available_slots\": 5,\n        \"id\": 6\n    }\n]"
+				},
+				{
+					"name": "http://localhost:8000/book",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n       \"class_id\": 4,\r\n       \"client_name\": \"Sri Hari\",\r\n       \"client_email\": \"sriharim96@gmail.com\"\r\n     }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/classes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"classes"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "date",
+							"value": "Sat, 02 Aug 2025 14:02:52 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "670"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"name\": \"Morning Yoga\",\n        \"start_datetime_IST\": \"2025-08-02T08:00:00\",\n        \"instructor\": \"Alice\",\n        \"available_slots\": 9,\n        \"id\": 1\n    },\n    {\n        \"name\": \"HIIT Training\",\n        \"start_datetime_IST\": \"2025-08-02T18:00:00\",\n        \"instructor\": \"Bob\",\n        \"available_slots\": 8,\n        \"id\": 2\n    },\n    {\n        \"name\": \"Pilates\",\n        \"start_datetime_IST\": \"2025-08-03T09:00:00\",\n        \"instructor\": \"Charlie\",\n        \"available_slots\": 12,\n        \"id\": 3\n    },\n    {\n        \"name\": \"CrossFit\",\n        \"start_datetime_IST\": \"2025-08-03T19:00:00\",\n        \"instructor\": \"David\",\n        \"available_slots\": 5,\n        \"id\": 4\n    },\n    {\n        \"name\": \"Zumba\",\n        \"start_datetime_IST\": \"2025-08-04T10:00:00\",\n        \"instructor\": \"Eva\",\n        \"available_slots\": 14,\n        \"id\": 5\n    },\n    {\n        \"name\": \"Boxing\",\n        \"start_datetime_IST\": \"2025-08-04T11:00:00\",\n        \"instructor\": \"Frank\",\n        \"available_slots\": 4,\n        \"id\": 6\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Bookings",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n       \"class_id\": 4,\r\n       \"client_name\": \"Sri Hari\",\r\n       \"client_email\": \"sriharim96@gmail.com\"\r\n     }"
+				},
+				"url": {
+					"raw": "http://localhost:8000/bookings?email=vivekvicku7755@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"bookings"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "vivekvicku7755@gmail.com"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Bookings",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n       \"class_id\": 4,\r\n       \"client_name\": \"Sri Hari\",\r\n       \"client_email\": \"sriharim96@gmail.com\"\r\n     }"
+						},
+						"url": {
+							"raw": "http://localhost:8000/bookings?email=vivekvicku7755@gmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bookings"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "vivekvicku7755@gmail.com"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "date",
+							"value": "Sat, 02 Aug 2025 13:59:41 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "171"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"class_name\": \"Morning Yoga\",\n        \"start_datetime_IST\": \"2025-08-02T08:00:00\",\n        \"client_name\": \"vivek jain\",\n        \"client_email\": \"vivekvicku7755@gmail.com\",\n        \"instructor\": \"Alice\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "All Bookings",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/bookings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"bookings"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/bookings",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bookings"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "date",
+							"value": "Sat, 02 Aug 2025 13:59:47 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "483"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"class_name\": \"Morning Yoga\",\n        \"start_datetime_IST\": \"2025-08-02T08:00:00\",\n        \"client_name\": \"vivek jain\",\n        \"client_email\": \"vivekvicku7755@gmail.com\",\n        \"instructor\": \"Alice\"\n    },\n    {\n        \"id\": 2,\n        \"class_name\": \"Zumba\",\n        \"start_datetime_IST\": \"2025-08-04T10:00:00\",\n        \"client_name\": \"Siddhi\",\n        \"client_email\": \"siddhi@123gmail.com\",\n        \"instructor\": \"Eva\"\n    },\n    {\n        \"id\": 3,\n        \"class_name\": \"CrossFit\",\n        \"start_datetime_IST\": \"2025-08-03T19:00:00\",\n        \"client_name\": \"Sri Hari\",\n        \"client_email\": \"sriharim96@gmail.com\",\n        \"instructor\": \"David\"\n    }\n]"
+				},
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/bookings",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bookings"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "date",
+							"value": "Sat, 02 Aug 2025 14:01:37 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "638"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"class_name\": \"Morning Yoga\",\n        \"start_datetime_IST\": \"2025-08-02T08:00:00\",\n        \"client_name\": \"vivek jain\",\n        \"client_email\": \"vivekvicku7755@gmail.com\",\n        \"instructor\": \"Alice\"\n    },\n    {\n        \"id\": 2,\n        \"class_name\": \"Zumba\",\n        \"start_datetime_IST\": \"2025-08-04T10:00:00\",\n        \"client_name\": \"Siddhi\",\n        \"client_email\": \"siddhi@123gmail.com\",\n        \"instructor\": \"Eva\"\n    },\n    {\n        \"id\": 3,\n        \"class_name\": \"CrossFit\",\n        \"start_datetime_IST\": \"2025-08-03T19:00:00\",\n        \"client_name\": \"Sri Hari\",\n        \"client_email\": \"sriharim96@gmail.com\",\n        \"instructor\": \"David\"\n    },\n    {\n        \"id\": 4,\n        \"class_name\": \"Boxing\",\n        \"start_datetime_IST\": \"2025-08-04T11:00:00\",\n        \"client_name\": \"Ashish\",\n        \"client_email\": \"ashish123@gmail.com\",\n        \"instructor\": \"Frank\"\n    }\n]"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "fitness-studio-booking-demo",
+  "version": "1.0.0",
+  "description": "A full-stack fitness studio booking demo with FastAPI backend and React frontend",
+  "scripts": {
+    "dev:backend": "cd backend && uvicorn main:app --reload --host 0.0.0.0 --port 8000",
+    "dev:frontend": "cd frontend && npm run dev",
+    "start": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "install:backend": "cd backend && pip install -r requirements.txt",
+    "install:frontend": "cd frontend && npm install",
+    "install:all": "npm run install:backend && npm run install:frontend",
+    "build:frontend": "cd frontend && npm run build"
+  },
+  "keywords": [
+    "fitness",
+    "booking",
+    "fastapi",
+    "react",
+    "sqlite",
+    "demo"
+  ],
+  "author": "Vivek",
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

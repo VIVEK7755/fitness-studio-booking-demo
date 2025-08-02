@@ -1,0 +1,61 @@
+# === Python ===
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+*.egg
+*.manifest
+*.spec
+.Python
+build/
+dist/
+*.log
+*.mo
+*.pot
+*.cover
+*.py,cover
+.coverage
+coverage.xml
+htmlcov/
+.cache
+.pytest_cache/
+.tox/
+.nox/
+.hypothesis/
+.mypy_cache/
+.dmypy.json
+.pyre/
+.pytype/
+
+# SQLite DB
+database.db
+database.db-journal
+
+# === FastAPI ===
+.env
+.env.*
+
+# === Node / React (Vite, Tailwind) ===
+node_modules/
+dist/
+build/
+.vite
+.tailwind
+.cache
+.parcel-cache
+*.tsbuildinfo
+*.tgz
+.npm
+.yarn*
+.pnpm-debug.log*
+
+# === Editor / IDE ===
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# === OS Files ===
+.DS_Store
+Thumbs.db
