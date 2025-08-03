@@ -181,6 +181,32 @@ curl -X GET "http://localhost:8000/bookings?email=john@example.com"
 
 ---
 
+
+## 🧪 API Testing with Postman
+
+You can test the backend API locally using the included Postman collection:
+
+📁 **File**: [`FitnessBooking.postman_collection.json`](./FitnessBooking.postman_collection.json)
+
+### 🔧 How to Use
+
+1. Make sure your **local backend server** is running on [http://localhost:8000](http://localhost:8000)
+2. **Install the Postman desktop app** if not already installed
+
+   > 🌐 Postman Web users: Localhost requests require the **Postman Agent** to be installed and running.
+3. Open Postman → click **"Import"**
+4. Select: `FitnessBooking.postman_collection.json`
+5. Explore and test endpoints like:
+
+   * `GET /classes`
+   * `POST /book`
+   * `GET /bookings?email=your@email.com`
+
+> The collection includes examples for booking, viewing classes, and checking booking history.
+
+---
+
+
 ## 📁 Project Structure
 
 ```
