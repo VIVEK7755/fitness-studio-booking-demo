@@ -1,13 +1,15 @@
-
 # 💪 Fitness Studio Booking Demo
 
 A comprehensive full-stack fitness studio booking application built with **FastAPI** (backend) and **React + Vite + Tailwind** (frontend).
+
+[![CI - Fitness Studio Booking](https://github.com/VIVEK7755/fitness-studio-booking-demo/actions/workflows/ci.yml/badge.svg)](https://github.com/VIVEK7755/fitness-studio-booking-demo/actions/workflows/ci.yml)
 
 ---
 
 ## 📚 Table of Contents
 - [✨ Key Features](#-key-features)
 - [🚀 Quick Start](#-quick-start)
+- [▶️ Running the Application](#-running-the-application)
 - [🎯 Enhanced Features](#-enhanced-features)
 - [📊 Sample Data (Auto-generated)](#-sample-data-auto-generated)
 - [🧪 API Testing](#-api-testing)
@@ -18,7 +20,7 @@ A comprehensive full-stack fitness studio booking application built with **FastA
 - [🛠 Development Notes](#-development-notes)
 - [📦 Available Scripts](#-available-scripts)
 - [🚀 Production Deployment](#-production-deployment)
-- [🎉 Demo Highlights](#-demo-highlights)
+- [📹 Loom Demo Video](#-loom-demo-video)
 - [📝 License](#-license)
 
 ---
@@ -32,6 +34,7 @@ A comprehensive full-stack fitness studio booking application built with **FastA
 - ✅ Instructor info & booking tracking
 - ✅ Validation + logging
 - ✅ Auto-generated API docs
+- ✅ GitHub Actions CI with test + build steps
 
 ### 🎨 Enhanced Frontend
 - ✅ View bookings by email
@@ -51,8 +54,11 @@ A comprehensive full-stack fitness studio booking application built with **FastA
 ### 📦 Install & Setup
 
 ```bash
-cd "c:\Users\vivek\Desktop\demo omnify"
-````
+# Clone the repository
+git clone https://github.com/VIVEK7755/fitness-studio-booking-demo.git
+cd fitness-studio-booking-demo
+```
+
 
 #### Option 1: Install All at Once (Recommended)
 
@@ -65,7 +71,14 @@ npm run install:all
 
 ```bash
 # Backend
-cd backend && pip install -r requirements.txt && cd ..
+cd backend
+python -m venv venv
+# Windows:
+venv\Scripts\activate
+# macOS/Linux:
+source venv/bin/activate
+pip install -r requirements.txt
+cd ..
 
 # Frontend
 cd frontend && npm install && cd ..
@@ -114,7 +127,7 @@ npm run dev:frontend
   * `GET /bookings?email=`
 * Pydantic validation, CORS, logging
 
-### 🖼️ Frontend (React + TypeScript)
+### 🖼️ Frontend (React + JSX)
 
 * View your bookings by email
 * Built-in API Tester
@@ -171,22 +184,32 @@ curl -X GET "http://localhost:8000/bookings?email=john@example.com"
 ## 📁 Project Structure
 
 ```
-demo omnify/
+fitness-studio-booking-demo/
+├── .github/workflows/
+│   └── ci.yml                     # GitHub Actions CI config
 ├── backend/
-│   ├── main.py              # FastAPI app
-│   ├── models.py            # SQLModel ORM
-│   ├── requirements.txt
-│   └── database.db          # Auto-created SQLite DB
+│   ├── main.py                    # FastAPI app entry point
+│   ├── models.py                  # SQLModel ORM models
+│   ├── db.py                      # DB setup + session
+│   ├── tests/
+│   │   └── test_main.py           # Pytest tests
+│   ├── __init__.py
+│   └── requirements.txt
+│   
 ├── frontend/
 │   ├── src/
-│   │   ├── App.tsx
-│   │   ├── main.tsx
+│   │   ├── App.jsx
+│   │   ├── main.jsx
 │   │   └── index.css
 │   ├── index.html
 │   ├── package.json
-│   ├── vite.config.ts
-│   └── tsconfig.json
-├── package.json             # Monorepo scripts
+│   ├── vite.config.js
+│   ├── postcss.config.js
+│   └── tailwind.config.js
+└── database.db                # SQLite DB (auto-generated)
+├── FitnessBooking.postman_collection.json
+├── pytest.ini
+├── package.json                  # Monorepo script runner
 ├── .gitignore
 └── README.md
 ```
@@ -200,7 +223,7 @@ demo omnify/
   * Brand Blue: `#14253e`
   * Brand Gold: `#F8D578`
 * **Font**: Inter (Google Fonts)
-* **UI**: Modal interface, cards, mobile responsive
+* **UI**: Modal interface, responsive layout
 * **Icons**: Emoji-enhanced UX
 
 ---
@@ -215,10 +238,11 @@ demo omnify/
 * Timezone aware (`pytz`)
 * Logging + error handling
 * Auto Swagger docs (`/docs`)
+* CI: Pytest run via GitHub Actions on `main`
 
 ### Frontend
 
-* React + Vite + TypeScript
+* React + Vite + JSX
 * Tailwind CSS
 * Fetch API for backend calls
 * React Hooks + modals
@@ -265,11 +289,13 @@ CREATE TABLE booking (
 
 ```bash
 npm start                # Run both backend & frontend
-npm run dev:backend      # Backend only
-npm run dev:frontend     # Frontend only
-npm run install:all      # Install both sides
+npm run dev:backend      # Backend only (FastAPI)
+npm run dev:frontend     # Frontend only (React)
+npm run install:all      # Install backend + frontend
 npm run build:frontend   # Build frontend for production
 ```
+
+> Requires [`concurrently`](https://www.npmjs.com/package/concurrently) for `npm start` to work.
 
 ---
 
@@ -279,26 +305,25 @@ npm run build:frontend   # Build frontend for production
 # Build frontend
 npm run build:frontend
 
-# Serve static files (e.g., using Nginx or Express)
-# Backend should be served via Gunicorn/Uvicorn with proper env vars
+# Serve static files (e.g., Nginx, Express)
+# Run backend via Gunicorn/Uvicorn for production
 ```
 
-> Don’t forget to:
+**Important**:
 
-* Set up `.env` or config files
+* Configure `.env` for production if needed
 * Restrict CORS origins
-* Add logging/monitoring
-* Run DB backups for SQLite or migrate to Postgres
+* Set up logging & monitoring
+* Use production-grade DB (e.g., Postgres)
 
 ---
 
-## 🎉 Demo Highlights
+## 📹 Loom Demo Video
 
-* ✅ Full-stack architecture (FastAPI + React)
-* ✅ Real-time booking with availability handling
-* ✅ Custom UI with modals, validation, and state management
-* ✅ API explorer for manual testing
-* ✅ Modern tech stack with production-ready config
+🎥 Watch a live walkthrough of the app setup and features on Loom:
+
+> [▶️ Watch Demo Video](https://drive.google.com/file/d/1yN8cE3cHBknRqWWW54YFMUKOzQCVbZYL/view?usp=sharing)
+
 
 ---
 
