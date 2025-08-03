@@ -360,7 +360,7 @@ const App = () => {
                 value={apiEndpoint}
                 onChange={(e) => setApiEndpoint(e.target.value)}
                 className="flex-1 border px-3 py-2 rounded"
-                placeholder="/classes or /book"
+                placeholder="/classes or /book or /bookings or /bookings?email=you@example.com"
               />
 
               <button
