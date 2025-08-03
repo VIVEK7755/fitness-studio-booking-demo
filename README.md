@@ -20,7 +20,7 @@ A comprehensive full-stack fitness studio booking application built with **FastA
 - [🛠 Development Notes](#-development-notes)
 - [📦 Available Scripts](#-available-scripts)
 - [🚀 Production Deployment](#-production-deployment)
-- [📹 Demo Video](#demo-video)
+- [📹 Demo Video](#-demo-video)
 - [📝 License](#-license)
 
 ---
@@ -349,7 +349,7 @@ Here’s the full **Markdown block** you can copy-paste into your `README.md` fi
 ---
 
 
-### ▶️ Demo Video
+## 📹 Demo Video
 
 [🎥 **Watch Demo Video**](https://drive.google.com/file/d/1yN8cE3cHBknRqWWW54YFMUKOzQCVbZYL/view?usp=sharing)
 
