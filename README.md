@@ -344,11 +344,18 @@ npm run build:frontend
 
 ---
 
-## 📹 Loom Demo Video
+Here’s the full **Markdown block** you can copy-paste into your `README.md` file to showcase your **edited demo video** professionally:
 
-🎥 Watch a live walkthrough of the app setup and features on Loom:
+---
 
-> [▶️ Watch Demo Video](https://drive.google.com/file/d/1yN8cE3cHBknRqWWW54YFMUKOzQCVbZYL/view?usp=sharing)
+
+### ▶️ Demo Video
+
+[🎥 **Watch Demo Video**](https://drive.google.com/file/d/1yN8cE3cHBknRqWWW54YFMUKOzQCVbZYL/view?usp=sharing)
+
+> 🎬 **Polished walkthrough** of the Fitness Studio Booking app with AI voiceover
+> 🔊 Covers backend API, frontend UI, and booking logic
+> 📺 *Click the link above to watch the demo in action on Google Drive*
 
 
 ---
